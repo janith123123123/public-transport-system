@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import customUser, Card, PaymentType, RechargHistory, CardState, TravelPlanState, TravelMode, Rout, Destination, Plan, TravelPlan, InterchangingPoint
+from .models import customUser, Card, PaymentType, RechargHistory, CardState, TravelPlanState, CardCategory, Rout, Destination, Plan, TravelPlan, InterchangingPoint
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -31,9 +31,9 @@ class TravelPlanStateSerializer(serializers.ModelSerializer):
         model = TravelPlanState
         fields = '__all__'
         
-class TravelModeSerializer(serializers.ModelSerializer):
+class CardCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = TravelMode
+        model = CardCategory
         fields = '__all__'
         
 class RoutSerializer(serializers.ModelSerializer):

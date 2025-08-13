@@ -1,0 +1,31 @@
+.leftnav {
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+}
+.leftnav ul {
+    z-index: 0;
+    margin-top: 100px;
+}
+.leftnav li {
+    list-style: none;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 20vw;
+    cursor: pointer; 
+    
+}
+.leftnav img {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+}
+
+.leftnav li:hover {
+    background-color: lightgray;
+}
+
+.leftnav li.active {
+   background-color: lightgray; 
+}

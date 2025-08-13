@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import customUser, PaymentType, RechargHistory, CardState, TravelPlanState, TravelMode, Rout, Destination, Card, Plan, TravelPlan, InterchangingPoint
-from .serializers import UserSerializer, PaymentTypeSerializer, RechargHistorySerializer, CardStateSerializer, TravelPlanStateSerializer, TravelModeSerializer, RoutSerializer, DestinationSerializer, CardSerializer, PlanSerializer, TravelPlanSerializer, InterchangingPointSerializer
+from .models import customUser, PaymentType, RechargHistory, CardState, TravelPlanState, CardCategory, Rout, Destination, Card, Plan, TravelPlan, InterchangingPoint
+from .serializers import UserSerializer, PaymentTypeSerializer, RechargHistorySerializer, CardStateSerializer, TravelPlanStateSerializer, CardCategorySerializer, RoutSerializer, DestinationSerializer, CardSerializer, PlanSerializer, TravelPlanSerializer, InterchangingPointSerializer
 from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
@@ -33,9 +33,9 @@ class TravelPlanStateViewSet(viewsets.ModelViewSet):
     serializer_class = TravelPlanStateSerializer
     permission_classes = [IsAuthenticated]
     
-class TravelModeViewSet(viewsets.ModelViewSet):
-    queryset = TravelMode.objects.all()
-    serializer_class = TravelModeSerializer
+class CardCategoryViewSet(viewsets.ModelViewSet):
+    queryset = CardCategory.objects.all()
+    serializer_class = CardCategorySerializer
     permission_classes = [IsAuthenticated]
     
 class RoutViewSet(viewsets.ModelViewSet):

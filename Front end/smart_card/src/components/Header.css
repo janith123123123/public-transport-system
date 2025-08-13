@@ -1,0 +1,29 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top:0;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.178);
+    height: 60px;
+    padding-left: 80px;
+    padding-right: 80px;
+    overflow: hidden;
+    background-color: white;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    text-align: right;
+    margin-left: auto;
+    
+}
+
+header li {
+    margin: 10px;
+}
+
+
+

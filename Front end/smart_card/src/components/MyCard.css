@@ -1,0 +1,61 @@
+.contentArea {
+    margin-top: 100px;
+    margin-left: 25vw;
+    height: 100%;
+}
+.mycardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+   
+
+}
+
+.cards {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.cards img {
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+
+.contentArea button {
+    background-color: blue;
+    color: aliceblue;
+    border-radius: 10px;
+    width: 100px;
+    border: none;
+    padding: 8px;
+}
+
+#cardnumber {
+    color: rgba(0, 0, 255, 0.717);
+}
+
+.balanceCardContainer{
+    display: flex;
+}
+.balanceCard {
+    width: 230px;
+    height: 150px;
+    background-color: rgba(211, 211, 211, 0.737);
+    border-radius: 20px;
+    padding-left: 50px;
+    padding-top: 40px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.balanceCard h3 {
+    color: green;
+}
+
+
+

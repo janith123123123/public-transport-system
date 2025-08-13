@@ -52,12 +52,6 @@ class TravelPlanState(models.Model):
     def __str__(self):
         return self.state
     
-class TravelMode(models.Model):
-    travel_mode_id = models.AutoField(primary_key=True)
-    mode = models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.mode
     
 class Rout(models.Model):
     rout_no = models.CharField(max_length=100)
@@ -76,15 +70,23 @@ class Destination(models.Model):
     def __str__(self):
         return f"{self.rout} - {self.fee_stage} - {self.fee} - {self.destination}"
 
+class CardCategory(models.Model):
+    card_category_id = models.AutoField(primary_key=True)
+    card_category = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.card_category
+
 class Card(models.Model):
     card_id = models.AutoField(primary_key=True)
+    card_category = models.ForeignKey(CardCategory, on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
     card_state = models.OneToOneField(CardState, on_delete=models.SET_NULL, null=True)
     balance = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return f"{self.card_id} - {self.user} - {self.card_state} - {self.balance}"
+        return f"{self.card_id} - {self.card_category} - {self.user} - {self.card_state} - {self.balance}"
 
 class Plan(models.Model):
     plan_id = models.AutoField(primary_key=True)
@@ -100,7 +102,6 @@ class TravelPlan(models.Model):
     to_destination = models.OneToOneField(Destination, on_delete=models.SET_NULL, null=True, related_name='travel_to')
     plan = models.OneToOneField(Plan, on_delete=models.SET_NULL, null=True)
     travel_plan_state = models.OneToOneField(TravelPlanState, on_delete=models.SET_NULL, null=True)
-    travel_mode = models.OneToOneField(TravelMode, on_delete=models.SET_NULL, null=True)
     fee = models.DecimalField(max_digits=10, decimal_places=2)
     
     def __str__(self):
