@@ -1,11 +1,19 @@
 .leftnav {
-    width: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+    width: 25vw;
     height: 100vh;
     position: fixed;
+    min-width: 200px;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    background-color: white;
 }
 .leftnav ul {
     z-index: 0;
     margin-top: 100px;
+    
 }
 .leftnav li {
     list-style: none;
@@ -14,6 +22,7 @@
     margin: 10px;
     width: 20vw;
     cursor: pointer; 
+    text-decoration: none;
     
 }
 .leftnav img {
@@ -22,10 +31,14 @@
     margin-bottom: 3px;
 }
 
+
+
 .leftnav li:hover {
     background-color: lightgray;
+    color: black;
 }
 
 .leftnav li.active {
    background-color: lightgray; 
 }
+

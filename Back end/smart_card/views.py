@@ -53,6 +53,9 @@ class CardViewSet(viewsets.ModelViewSet):
     serializer_class = CardSerializer
     permission_classes = [IsAuthenticated]
     
+    def get_queryset(self):
+        return Card.objects.filter(user=self.request.user)
+    
 class PlanViewSet(viewsets.ModelViewSet):
     queryset = Plan.objects.all()
     serializer_class = PlanSerializer

@@ -1,18 +1,20 @@
 import './Header.css'
+import image from '../assets/IMG_4.JPG'
 
 function Header() {
     return <header>
-            <h1>Smart Card</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a className="nav-link active" aria-current="page" href="#">HOME</a>
-                    </li>
-                    <li>
-                        <a className="nav-link" href="#">CONTACT US</a>
-                    </li>
-                </ul>
-            </nav>
+            <h2>Smart Card</h2>
+            <div className='headerRight'>
+                <nav>
+                    <ul>
+                        <li>HOME</li>
+                        <li>CONTACT US</li>
+                    </ul>
+                </nav>
+                <div className='profile'>
+                    <img src={image}/> 
+                </div>
+            </div>
         </header>
 }
 

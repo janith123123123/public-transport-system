@@ -39,8 +39,11 @@ class PaymentType(models.Model):
         return self.type
 
 class CardState(models.Model):
-    Card_State_id = models.AutoField(primary_key=True)
-    state = models.CharField(max_length=20)
+    card_States = [
+        ('ACTIVATE' , 'Activate'),
+        ('DISABLED', 'Desabled')
+    ]
+    state = models.CharField(max_length=20, choices=card_States, default='ACTIVATED')
     
     def __str__(self):
         return self.state
@@ -71,8 +74,12 @@ class Destination(models.Model):
         return f"{self.rout} - {self.fee_stage} - {self.fee} - {self.destination}"
 
 class CardCategory(models.Model):
-    card_category_id = models.AutoField(primary_key=True)
-    card_category = models.CharField(max_length=50)
+    card_types = [
+        ('BUS','Bus'),
+        ('TRAIN','Train'),
+    ]
+    
+    card_category = models.CharField(max_length=10, choices=card_types, default="BUS")
     
     def __str__(self):
         return self.card_category
@@ -81,7 +88,7 @@ class Card(models.Model):
     card_id = models.AutoField(primary_key=True)
     card_category = models.ForeignKey(CardCategory, on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
-    card_state = models.OneToOneField(CardState, on_delete=models.SET_NULL, null=True)
+    card_state = models.ForeignKey(CardState, on_delete=models.SET_NULL, null=True)
     balance = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     
